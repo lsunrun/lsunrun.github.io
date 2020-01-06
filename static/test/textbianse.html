@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .gradient-text {
+            background-image: linear-gradient(90deg, #f66, #f90);
+            background-clip: text;
+            -webkit-background-clip: text;
+            font-size: 60px;
+            animation: hue 5s linear infinite;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* 就是一个色调360度不断旋转。 */
+        @keyframes hue {
+            from {
+                filter: hue-rotate(0);
+            }
+
+            to {
+                filter: hue-rotate(360deg);
+            }
+        }
+
+        .bb {
+            background: url(//image.zhangxinxu.com/image/blog/201811/piece-bird.png);
+            width: 300px;
+            height: 232px;
+            background-size: contain;
+            animation: hue 5s linear infinite;
+        }
+
+        .cc {
+            background: url('image/temp_pic_1.jpg') no-repeat;
+            width: 300px;
+            height: 232px;
+            background-size: contain;
+            animation: hue 5s linear infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="gradient-text">Full Stack Developer</h1>
+
+    <div class="bb"></div>
+
+    <div class="cc"></div>
+</body>
+
+</html>

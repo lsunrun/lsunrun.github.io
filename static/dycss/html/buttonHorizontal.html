@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            background: #aaa;
+        }
+
+        .wrap {
+            display: flex;
+            align-items: center;
+            height: 500px;
+            justify-content: center;
+        }
+
+        .button {
+            position: relative;
+            cursor: pointer;
+            color: white;
+            font-family: "Lato";
+            font-size: 16px;
+            padding: 10px;
+            /* margin: 10px 10px; */
+            background: #3c4650;
+        }
+
+        .button:nth-of-type(1):before,
+        .button:nth-of-type(1):after {
+            background-color: #ffa726;
+        }
+
+        .button.horizontal .inner:hover:before,
+        .button.horizontal .inner:hover:after {
+            -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+        }
+
+        .button.horizontal:before {
+            top: 0;
+        }
+
+        .button.horizontal:after {
+            bottom: 0;
+        }
+
+        .button.horizontal:hover:before,
+        .button.horizontal:hover:after {
+            transform: scaleX(1);
+        }
+
+
+        .button:before,
+        .button:after {
+            position: absolute;
+            content: "";
+            display: block;
+            -webkit-transition: -webkit-transform 0.3s;
+            transition: -webkit-transform 0.3s;
+            transition: transform 0.3s;
+            transition: transform 0.3s, -webkit-transform 0.3s;
+        }
+
+        .button.horizontal {
+            right: 0;
+        }
+
+        .button.horizontal:before,
+        .button.horizontal:after {
+            left: 0;
+            width: 100%;
+            height: 2px;
+            transform: scaleX(0);
+        }
+
+        .button.horizontal.counterclockwise:hover:before {
+            transform-origin: right center;
+        }
+        .button.horizontal.counterclockwise:before{
+            transform-origin: left center;
+        }
+        
+
+        .button.horizontal.counterclockwise:hover:after {
+            transform-origin: left center;
+        }
+
+        .button.horizontal.counterclockwise:after {
+            transform-origin: right center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="button counterclockwise horizontal">Horizontal</div>
+    </div>
+</body>
+
+</html>

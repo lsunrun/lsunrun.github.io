@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>滚动条的样式</title>
+    <style>
+        .a {
+            height: 200px;
+            overflow: auto;
+            border: 1px solid;
+        }
+
+        .s {
+            height: 300px;
+            border: 1px solid;
+
+        }
+
+        .a::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .a::-webkit-scrollbar-track {
+            background-color: #ddd;
+        }
+
+        .a::-webkit-scrollbar-thumb {
+            border-radius: 2px;
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="a">
+        <div class="s">asdasdasd</div>
+    </div>
+</body>
+
+</html>

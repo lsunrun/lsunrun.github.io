@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div.demo {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            /* transition: background-color 4s ; */
+
+        }
+
+        div.demo:hover {
+            /* background-color: red; */
+            /* transform: rotate(50deg) */
+        }
+
+
+        .ss{
+            height: 50px;
+            width: 50px;
+            background: #aaa;
+            transition: width 2s;
+            position: absolute;
+            left: 50%;
+           
+        }
+       /* div:hover{
+            width: 150px;
+       } */
+        @keyframes aa{
+            0%{
+                height: 10px;
+            }
+            50%{
+                height: 100px;
+            }
+            100%{
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo"> </div>
+    <div class="ss" onclick="c()" class="c">
+    <script>
+        var d = document.getElementsByClassName("demo")[0];
+        var t = null;
+        var a = 0;
+        d.onclick = function () {
+            d.style.transform = "rotate(70deg)";
+        }
+
+        function c(){
+         var s =document.getElementsByTagName('div')[0]
+         s.style.width="100px";
+         s.style.animation="aa 2s infinite"
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box,
+        .a {
+            box-shadow: 0px 0px 0 20px red, 0px 0px 0 38px grey, 0px 0px 0 51px blue, 0px 0px 0 84px yellow;
+            width: 200px;
+            height: 200px;
+            margin: 0;
+            padding: 0;
+            border: 1px solid #ccc;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 999999999999999999;
+            color: #aaa;
+            border-radius: 0px 0px 0px 125px
+        }
+
+        .box1 {
+            box-shadow: 0px 0px 0 20px red, 0px 0px 0 38px grey, 0px 0px 0 51px blue, 0px 0px 0 84px yellow;
+            width: 200px;
+            height: 200px;
+            margin: 0;
+            padding: 0;
+            border: 1px solid #ccc;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 999999999999999999;
+            color: #aaa;
+            border-radius: 100px 100px 0px 0px;
+        }
+
+        .box2,
+        .b {
+            box-shadow: 0px 0px 0 20px red, 0px 0px 0 38px grey, 0px 0px 0 51px blue, 0px 0px 0 84px yellow;
+            width: 200px;
+            height: 200px;
+            margin: 0;
+            padding: 0;
+            border: 1px solid #ccc;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 999999999999999999;
+            color: #aaa;
+            border-radius: 100px 100px 100px 0px;
+        }
+
+        .a {
+            left: 20%;
+        }
+
+        .b {
+            left: 80%;
+        }
+
+
+
+        /* 带阴影的三角形 */
+        /* .triangle {
+            width: 200px;
+            height: 60px;
+            position: relative;
+            filter: drop-shadow(0 0 8px #444);
+            background-color: #fff;
+        }
+
+        .triangle:after {
+            content: "";
+            position: absolute;
+            left: 20px;
+            bottom: -10px;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            transform: rotate(45deg);
+        } */
+
+
+        /* 可以用 */
+        #demo {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-width: 100px 100px;
+            border-style: solid;
+            border-color: yellow yellow transparent transparent;
+
+            /* border: 100px solid transparent;
+            border-left-width: 0;
+            border-bottom: 0;
+            border-right-color: yellow; */
+            transform: rotate(135deg);
+            filter: drop-shadow(7px -7px 10px blue);
+        }
+
+        /* 可以用 */
+
+        .z {
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-top-color: #aaa;
+            border-bottom-width: 0;
+            filter: drop-shadow(0px 3px 2px blue);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="a"></div>
+    <div class="b"></div>
+
+    <div class="triangle"></div>
+
+    <div class="z"></div>
+
+    <div id="demo"></div>
+</body>
+
+</html>

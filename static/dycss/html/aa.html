@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @import url(http://fonts.googleapis.com/css?family=Open+Sans:400|Raleway:300);
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-family: 'Open Sans', Helvetica, arial, sans-serif;
+            background-color: #eeeeee;
+        }
+
+        h1,
+        h4 {
+            font-family: 'Raleway', 'Open Sans', sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .container {
+            overflow: hidden;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .col {
+            padding: 1rem;
+        }
+
+        @media (min-width: 500px) {
+            .col {
+                width: 50%;
+                float: left;
+            }
+
+            .col:nth-of-type(2n+1) {
+                clear: left;
+            }
+        }
+
+        .btn-1 {
+            color: #484842 !important;
+        }
+
+        .btn-2 {
+            color: #9e5b40 !important;
+        }
+
+        .btn-3 {
+            color: #88885a !important;
+        }
+
+        .btn-4 {
+            color: #4b4f5a !important;
+        }
+
+        .btn-5 {
+            color: #646758 !important;
+        }
+
+        .btn-6 {
+            color: #886463 !important;
+        }
+
+        .btn-7 {
+            color: #5d6188 !important;
+        }
+
+        .btn-8 {
+            color: #8d58ac !important;
+        }
+
+        .btn {
+            display: block;
+            position: relative;
+            overflow: hidden;
+            padding: 1.5rem;
+            text-decoration: none;
+        }
+
+        .btn:before,
+        .btn:after,
+        .btn code:before,
+        .btn code:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            background-color: currentColor;
+            -webkit-transition: 0.3s ease-in-out;
+            transition: 0.3s ease-in-out;
+        }
+
+        .btn--cw:after,
+        .btn--ccw:after,
+        .btn--cw-tlbr:after,
+        .btn--ccw-tlbr:after,
+        .btn--cw-trbl:after,
+        .btn--ccw-trbl:after {
+            top: auto;
+            right: 0;
+            bottom: 0;
+            left: auto;
+        }
+
+        .btn--cw code:before,
+        .btn--ccw code:before,
+        .btn--cw-tlbr code:before,
+        .btn--ccw-tlbr code:before,
+        .btn--cw-trbl code:before,
+        .btn--ccw-trbl code:before {
+            right: 0;
+            left: auto;
+        }
+
+        .btn--cw code:after,
+        .btn--ccw code:after,
+        .btn--cw-tlbr code:after,
+        .btn--ccw-tlbr code:after,
+        .btn--cw-trbl code:after,
+        .btn--ccw-trbl code:after {
+            top: auto;
+            bottom: 0;
+        }
+
+        .btn--cw:before,
+        .btn--cw:after {
+            width: 0;
+            height: 2px;
+        }
+
+        .btn--cw code:before,
+        .btn--cw code:after {
+            width: 2px;
+            height: 0;
+        }
+
+        .btn--cw:hover:before,
+        .btn--cw:hover:after {
+            width: 100%;
+        }
+
+        .btn--cw:hover code:before,
+        .btn--cw:hover code:after {
+            height: 100%;
+        }
+
+        .btn--ccw:before,
+        .btn--ccw:after {
+            width: 2px;
+            height: 0;
+        }
+
+        .btn--ccw code:before,
+        .btn--ccw code:after {
+            width: 0;
+            height: 2px;
+        }
+
+        .btn--ccw:hover:before,
+        .btn--ccw:hover:after {
+            height: 100%;
+        }
+
+        .btn--ccw:hover code:before,
+        .btn--ccw:hover code:after {
+            width: 100%;
+        }
+
+        .btn--tlbr:before,
+        .btn--tlbr:after {
+            width: 0;
+            height: 2px;
+        }
+
+        .btn--tlbr:after,
+        .btn--tlbr code:after {
+            top: auto;
+            right: 0;
+            bottom: 0;
+            left: auto;
+        }
+
+        .btn--tlbr code:before,
+        .btn--tlbr code:after {
+            width: 2px;
+            height: 0;
+        }
+
+        .btn--tlbr:hover:before,
+        .btn--tlbr:hover:after {
+            width: 100%;
+        }
+
+        .btn--tlbr:hover code:before,
+        .btn--tlbr:hover code:after {
+            height: 100%;
+        }
+
+        .btn--trbl:before,
+        .btn--trbl:after {
+            width: 0;
+            height: 2px;
+        }
+
+        .btn--trbl:before,
+        .btn--trbl code:before {
+            right: 0;
+            left: auto;
+        }
+
+        .btn--trbl:after,
+        .btn--trbl code:after {
+            top: auto;
+            bottom: 0;
+        }
+
+        .btn--trbl code:before,
+        .btn--trbl code:after {
+            width: 2px;
+            height: 0;
+        }
+
+        .btn--trbl:hover:before,
+        .btn--trbl:hover:after {
+            width: 100%;
+        }
+
+        .btn--trbl:hover code:before,
+        .btn--trbl:hover code:after {
+            height: 100%;
+        }
+
+        .btn--cw-tlbr:before,
+        .btn--cw-tlbr:after,
+        .btn--cw-tlbr code:before,
+        .btn--cw-tlbr code:after,
+        .btn--ccw-tlbr:before,
+        .btn--ccw-tlbr:after,
+        .btn--ccw-tlbr code:before,
+        .btn--ccw-tlbr code:after,
+        .btn--cw-trbl:before,
+        .btn--cw-trbl:after,
+        .btn--cw-trbl code:before,
+        .btn--cw-trbl code:after,
+        .btn--ccw-trbl:before,
+        .btn--ccw-trbl:after,
+        .btn--ccw-trbl code:before,
+        .btn--ccw-trbl code:after {
+            -webkit-transition: 0.15s ease-in-out;
+            transition: 0.15s ease-in-out;
+        }
+
+        .btn--cw-tlbr:before,
+        .btn--cw-tlbr:after {
+            width: 0;
+            height: 2px;
+            -webkit-transition-delay: 0.15s;
+            transition-delay: 0.15s;
+        }
+
+        .btn--cw-tlbr code:before,
+        .btn--cw-tlbr code:after {
+            width: 2px;
+            height: 0;
+            -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+        }
+
+        .btn--cw-tlbr:hover:before,
+        .btn--cw-tlbr:hover:after {
+            width: 100%;
+            -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+        }
+
+        .btn--cw-tlbr:hover code:before,
+        .btn--cw-tlbr:hover code:after {
+            height: 100%;
+            -webkit-transition-delay: 0.15s;
+            transition-delay: 0.15s;
+        }
+
+        .btn--ccw-tlbr:before,
+        .btn--ccw-tlbr:after {
+            width: 2px;
+            height: 0;
+            -webkit-transition-delay: 0.15s;
+            transition-delay: 0.15s;
+        }
+
+        .btn--ccw-tlbr code:before,
+        .btn--ccw-tlbr code:after {
+            width: 0;
+            height: 2px;
+            -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+        }
+
+        .btn--ccw-tlbr:hover:before,
+        .btn--ccw-tlbr:hover:after {
+            height: 100%;
+            -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+        }
+
+        .btn--ccw-tlbr:hover code:before,
+        .btn--ccw-tlbr:hover code:after {
+            width: 100%;
+            -webkit-transition-delay: 0.15s;
+            transition-delay: 0.15s;
+        }
+
+        .btn--cw-trbl:before,
+        .btn--cw-trbl:after {
+            width: 0;
+            height: 2px;
+            -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+        }
+
+        .btn--cw-trbl code:before,
+        .btn--cw-trbl code:after {
+            width: 2px;
+            height: 0;
+            -webkit-transition-delay: 0.15s;
+            transition-delay: 0.15s;
+        }
+
+        .btn--cw-trbl:hover:before,
+        .btn--cw-trbl:hover:after {
+            width: 100%;
+            -webkit-transition-delay: 0.15s;
+            transition-delay: 0.15s;
+        }
+
+        .btn--cw-trbl:hover code:before,
+        .btn--cw-trbl:hover code:after {
+            height: 100%;
+            -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+        }
+
+        .btn--ccw-trbl:before,
+        .btn--ccw-trbl:after {
+            width: 2px;
+            height: 0;
+            -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+        }
+
+        .btn--ccw-trbl code:before,
+        .btn--ccw-trbl code:after {
+            width: 0;
+            height: 2px;
+            -webkit-transition-delay: 0.15s;
+            transition-delay: 0.15s;
+        }
+
+        .btn--ccw-trbl:hover:before,
+        .btn--ccw-trbl:hover:after {
+            height: 100%;
+            -webkit-transition-delay: 0.15s;
+            transition-delay: 0.15s;
+        }
+
+        .btn--ccw-trbl:hover code:before,
+        .btn--ccw-trbl:hover code:after {
+            width: 100%;
+            -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Line Button<br>Hover Effects</h1>
+
+        <div class="col">
+            <a rel="nofollow" rel="noreferrer" href="#" class="btn btn-1 btn--cw">
+                <code>.btn--cw</code>
+            </a>
+        </div>
+
+        <div class="col">
+            <a rel="nofollow" rel="noreferrer" href="#" class="btn btn-2 btn--ccw">
+                <code>.btn--ccw</code>
+            </a>
+        </div>
+
+        <div class="col">
+            <a rel="nofollow" rel="noreferrer" href="#" class="btn btn-3 btn--tlbr">
+                <code>.btn--tlbr</code>
+            </a>
+        </div>
+
+        <div class="col">
+            <a rel="nofollow" rel="noreferrer" href="#" class="btn btn-4 btn--trbl">
+                <code>.btn--trbl</code>
+            </a>
+        </div>
+
+        <div class="col">
+            <a rel="nofollow" rel="noreferrer" href="#" class="btn btn-5 btn--cw-tlbr">
+                <code>.btn--cw-tlbr</code>
+            </a>
+        </div>
+
+        <div class="col">
+            <a rel="nofollow" rel="noreferrer" href="#" class="btn btn-6 btn--ccw-tlbr">
+                <code>.btn--ccw-tlbr</code>
+            </a>
+        </div>
+
+        <div class="col">
+            <a rel="nofollow" rel="noreferrer" href="#" class="btn btn-7 btn--cw-trbl">
+                <code>.btn--cw-trbl</code>
+            </a>
+        </div>
+
+        <div class="col">
+            <a rel="nofollow" rel="noreferrer" href="#" class="btn btn-8 btn--ccw-trbl">
+                <code>.btn--ccw-trbl</code>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

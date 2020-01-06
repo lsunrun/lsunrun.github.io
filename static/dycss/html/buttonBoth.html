@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            background: #aaa;
+        }
+
+        .wrap {
+            display: flex;
+            align-items: center;
+            height: 500px;
+            justify-content: center;
+        }
+
+        .button:nth-of-type(1):before,
+        .button:nth-of-type(1):after,
+        .button:nth-of-type(1) .inner:before,
+        .button:nth-of-type(1) .inner:after {
+            background-color: #ffa726;
+        }
+
+        .button:before,
+        .button:after,
+        .button .inner:before,
+        .button .inner:after {
+            position: absolute;
+            content: "";
+            display: block;
+            -webkit-transition: -webkit-transform 0.3s;
+            transition: -webkit-transform 0.3s;
+            transition: transform 0.3s;
+            transition: transform 0.3s, -webkit-transform 0.3s;
+        }
+
+
+        .button {
+            position: relative;
+            cursor: pointer;
+            color: white;
+            font-family: "Lato";
+            font-size: 16px;
+            padding: 10px;
+            /* margin: 10px 10px; */
+            background: #3c4650;
+        }
+
+        .button.both:before,
+        .button.both:after {
+            left: 0;
+            width: 100%;
+            height: 2px;
+            -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+        }
+
+        .button.both .inner:before,
+        .button.both .inner:after {
+            top: 0;
+            width: 2px;
+            height: 100%;
+            -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+        }
+
+
+        .button.both .inner:hover:before,
+        .button.both .inner:hover:after {
+            transform: scaleY(1);
+        }
+
+        .button.both:hover:before,
+        .button.both:hover:after {
+            transform: scaleX(1);
+        }
+
+        .button.both .inner:before {
+            left: 0;
+        }
+
+        .button.both .inner:after {
+            right: 0;
+        }
+
+        .button.both:before {
+            top: 0;
+        }
+
+        .button.both:after {
+            bottom: 0;
+        }
+
+        .button.both.counterclockwise .inner:before {
+            transform-origin: bottom center;
+        }
+
+        .button.both.counterclockwise .inner:after {
+            transform-origin: top center;
+        }
+
+        .button.both.counterclockwise:after {
+            transform-origin: right center;
+        }
+
+        .button.both.counterclockwise:before {
+            transform-origin: left center;
+        }
+
+        .button.both:hover .inner:before,
+        .button.both:hover .inner:after {
+            transform: scaleY(1);
+        }
+
+        .button.both.counterclockwise:hover .inner:before {
+            transform-origin: top center;
+        }
+
+
+
+        .button.both.counterclockwise:hover .inner:after {
+            transform-origin: bottom center;
+        }
+
+        .button.both.counterclockwise:hover:before {
+            transform-origin: right center;
+        }
+
+
+        .button.both.counterclockwise:hover:after {
+            transform-origin: left center;
+        }
+
+
+      
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="button counterclockwise both">Both
+            <div class="inner"></div>
+        </div>
+     
+    </div>
+</body>
+
+</html>

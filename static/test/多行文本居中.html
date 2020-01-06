@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .a {
+            width: 500px;
+            height: 600px;
+            line-height: 600px;
+            word-break: break-all;
+        }
+
+        .d {
+            line-height: normal;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .c {
+            height: 600px;
+            line-height: 600px;
+            word-break: break-all;
+            text-align: center;
+        }
+
+        .s {
+            line-height: normal;
+            display: inline-block;
+            vertical-align: middle;
+            text-align: left;
+        }
+
+        /* .text {
+            display: inline-block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .text {
+            display: table;
+            margin: 0 auto;
+        } */
+
+        /* .text {
+            display: flex;
+            justify-content: center;
+        }
+
+        .text {
+            display: grid;
+            justify-items: center;
+        } */
+
+        .content {
+            position: relative;
+            float: left;
+            left: 50%;
+            /**父级设置50%**/
+        }
+
+        .text {
+            position: relative;
+            left: -50%;
+            /**子级设置-50%**/
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="a">
+        <span class="d">字体大中小可以在自己标签上设置这样 上下标签就会是紧密排列衔接了，行高就正常了字体大中小可以在自己标签上设置这样
+            上下标签就会是紧密排列衔接了，行高就正常了............................................</span>
+    </div> -->
+
+    <!-- 
+    大概原理如下：
+
+对于一个元素，如果其display属性值是inline-block，那么其宽度由内部元素决定，但永远小于“包含块”容器的尺寸，也就是“包裹性（shrink-to-fit）”
+
+可能这样描述的不够直观，来上述的案例简单来讲
+
+
+当文本比较少时，.text的宽度跟随文本，然后我们可以使用父级text-align:center来使一个inline-block元素居中，所以可以满足单行文本居中的效果，
+
+
+当文本比较多时，.text的宽度跟随父级容器，由于text-align:center会继承下去，所以在.text上修复一下即可 -->
+
+
+    <!-- <div class="c">
+        <span class="s">这段文字能不能这样判断一下，当文字不足一行时，让它居中显示，当文字超过一行就让它居左............................................</span>
+    </div>
+    <div class="text">这段文字能不能这样判断一下，当文字不足一行时，让它居中显示，当文字超过一行就让它居左............................................</div> -->
+
+    <div class="content">
+        <div class="text">这段文字能不能这样判断一下，当文字不足一行时，让它居中显示，当文字超过一行就让它居左............................................</div>
+    </div>
+
+</body>
+
+</html>

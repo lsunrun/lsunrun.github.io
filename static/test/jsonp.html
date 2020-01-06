@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p></p>
+    <script>
+        function show(result) {
+            console.log(result);
+        }
+    </script>
+    <script src="http://suggest.taobao.com/sug?code=utf-8&q=女&callback=show"></script>
+
+
+    <!-- jQ -->
+    <script src="js/lib/jquery-1.11.1.min.js"></script>
+    <script>
+
+        $.ajax({
+            url: 'https://suggest.taobao.com/sug?code=utf-8&q=女',
+            type: 'get',
+            dataType: 'jsonp',
+            success: function (data) {
+                console.log(data);
+                s = 22222222
+                console.log(s);
+            },
+        })
+
+
+    </script>
+    <script>
+        $.ajax({
+            url: 'https://suggest.taobao.com/sug?code=utf-8&q=女',
+            type: 'get',
+            dataType: 'jsonp',
+            jsonpCallback: "aaa",
+
+        })
+        function aaa(data) {
+            console.log(data);
+        }
+    </script>
+</body>
+
+</html>

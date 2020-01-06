@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="file" onchange="changepic(this)"></div>
+    <img src="" alt="" id="img">
+    <!-- <p>213123123</p> -->
+    <script src="js/lib/jquery-1.11.1.min.js"></script>
+    <script>
+        function changepic(event) {
+            var reader = new FileReader();
+            var file = event.files[0];
+            if (file) {
+                var fileSize = file.size / (1024 * 1024);
+                // 限制文件大小
+                if (fileSize > 5) {
+                    return;
+                }
+                // 限制文件类型
+                if (!(file.type == "image/png" || file.type == "image/jpeg" || file.type == "image/jpg")) {
+                    return;
+                }
+            }
+            reader.readAsDataURL(file);//转化二进制流
+            reader.onload = function (e) {
+                //图片路径设置为读取的图片
+               document.getElementById("img").src = e.target.result;
+            };
+        }
+        function onload() {
+
+        }
+        function uploadFailed() {
+
+        }
+
+        // var s = null;
+        // setInterval(function () {
+        //     console.log(1)
+        //     $("p").animate({ top: "200px" });
+        //     clearTimeout(s)
+        //     s = setTimeout(function () { $("p").animate({ top: 0 }); }, 950)
+        // }, 2000)
+    </script>
+</body>
+
+</html>

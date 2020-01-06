@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            background: #aaa;
+        }
+
+        .wrap {
+            display: flex;
+            align-items: center;
+            height: 500px;
+            justify-content: center;
+        }
+
+        .button {
+            position: relative;
+            cursor: pointer;
+            color: white;
+            font-family: "Lato";
+            font-size: 16px;
+            padding: 10px;
+            background: #3c4650;
+        }
+
+        .button:before,
+        .button:after {
+            position: absolute;
+            content: "";
+            display: block;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            transform: scaleY(0);
+            background-color: #ffa726;
+            transition: transform 0.3s;
+        }
+
+
+
+        .button:before {
+            left: 0;
+        }
+
+        .button:after {
+            right: 0;
+        }
+
+
+
+
+        .button:before {
+            transform-origin: bottom center;
+        }
+
+        .button:after {
+            transform-origin: top center;
+        }
+
+        .button:hover:before {
+            transform-origin: top center;
+        }
+
+        .button:hover:after {
+            transform-origin: bottom center;
+        }
+
+        .button:hover:before,
+        .button:hover:after {
+            transform: scaleY(1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="button  vertical">Vertical</div>
+        <div>aaa</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 600px;
+            line-height: 600px;
+            word-break: break-all;
+        }
+
+        span {
+            line-height: normal;  /* 这个是关键 */
+            display: inline-block;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span>字体大中小可以在自己标签上设置这样 上下标签就会是紧密排列衔接了，行高就正常了字体大中小可以在自己标签上设置这样 上下标签就会是紧密排列衔接了，行高就正常了</span>
+    </div>
+
+   
+    <input type="checkbox" data_val="1">
+    <script>
+        function a() {
+            var inputs = document.getElementsByTagName("input");
+            var str = '';
+            var arr = [];
+            for (var i = 0; i < inputs.length; i++) {
+                var data = inputs[i];
+                if (data.type == "checkbox") {
+                    if (data.checked == true) {
+                        alert('您选择了哦');
+                        arr.push(data.getAttribute("data_val"));
+                    } else {
+                        if (data.checked == false) {
+                            //如果方框没选中，code
+                        }
+                    }
+                }
+            }
+            str = arr.join(",");
+        }
+    </script>
+</body>
+
+</html>

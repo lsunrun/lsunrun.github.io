@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .auto-height {
+            width: 300px;
+        }
+
+        .auto-height>li {
+            margin-top: 5px;
+            cursor: pointer;
+
+        }
+
+        .auto-height>li :first-child {
+            margin-top: 0;
+        }
+
+        .auto-height>li:hover .ss {
+            border-bottom-width: 1px;
+            max-height: 600px;
+        }
+
+        h3 {
+            padding: 0 20px;
+            height: 40px;
+            background-color: #f66;
+            cursor: pointer;
+            line-height: 40px;
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .ss {
+            overflow: hidden;
+            padding: 0 20px;
+            border: 1px solid #f66;
+            border-top: none;
+            border-bottom-width: 0;
+            max-height: 0;
+            line-height: 30px;
+            transition: all 100ms;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bruce flex-ct-x">
+        <ul class="auto-height">
+            <li>
+                <h3>列表1</h3>
+                <ul class="ss">
+                    <li>内容1</li>
+                    <li>内容2</li>
+                    <li>内容3</li>
+                </ul>
+            </li>
+            <li>
+                <h3>列表2</h3>
+                <ul class="ss">
+                    <li>内容1</li>
+                    <li>内容2</li>
+                    <li>内容3</li>
+                </ul>
+            </li>
+            <li>
+                <h3>列表3</h3>
+                <ul class="ss">
+                    <li>内容1</li>
+                    <li>内容2</li>
+                    <li>内容3</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
