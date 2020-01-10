@@ -34,17 +34,55 @@
                 }
             }
             reader.readAsDataURL(file);//转化二进制流
-            reader.onload = function (e) {
-                //图片路径设置为读取的图片
-               document.getElementById("img").src = e.target.result;
-            };
-        }
-        function onload() {
+            // function onload() {
+            //     var s, a;
+            //     return new Promise((resolve, reject) => {
+            //         reader.onload = function (e) {
+            //             //图片路径设置为读取的图片
+            //             document.getElementById("img").src = e.target.result;
+
+            //             resolve(function () {
+            //                 s = 1 + 1;
+            //                 a = 2 + 2;
+            //                 return false
+            //             })
+            //         };
+            //     })
+            // }
+
+            // async function uploadFailed() {
+            //     var flag = await onload()
+            //     console.log(flag);
+            //     return flag
+            // }
+            // uploadFailed()
+
+            // function onload() {
+            //     return new Promise((resolve, reject) => {
+            //         reader.onload = function (e) {
+            //             //图片路径设置为读取的图片
+            //             document.getElementById("img").src = e.target.result;
+            //             resolve(false) //这个是关键
+            //         };
+            //     })
+            // }
+            // async function uploadFailed() {
+            //     var flag = await onload()
+            //     return flag
+            // }
+            // uploadFailed()
 
         }
-        function uploadFailed() {
 
-        }
+
+
+
+
+
+
+
+
+
 
         // var s = null;
         // setInterval(function () {

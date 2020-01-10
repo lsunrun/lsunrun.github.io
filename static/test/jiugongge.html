@@ -121,7 +121,7 @@
 </head>
 
 <body>
-    <!-- <div class="luckyDraw">
+    <div class="luckyDraw">
         <ul class="lottery">
             <li class="active">1</li>
             <li>2</li>
@@ -134,10 +134,10 @@
             <li>点击抽奖</li>
         </ul>
         <span class="prize">奖品</span>
-    </div> -->
+    </div>
 
 
-    <div class="circle">
+    <!-- <div class="circle">
         <ul class="wrap-circle">
             <li class="active">1</li>
             <li>2</li>
@@ -149,70 +149,72 @@
             <li>8</li>
         </ul>
         <div class="circle-center"></div>
-    </div>
+    </div> -->
 
 
 
     <script>
 
 
-        // var arr = [1, 2, 3, 4, 5, 6, 7, 8];
-        // var lottery = document.querySelector('.lottery');
-        // var prize = document.querySelector('.prize');
-        // var ali = lottery.querySelectorAll('li');
+        var arr = [1, 2, 3, 4, 5, 6, 7, 8];
+        var lottery = document.querySelector('.lottery');
+        var prize = document.querySelector('.prize');
+        var ali = lottery.querySelectorAll('li');
 
-        // var i = 0;//转到哪个位置
-        // var count = 0;//转圈初始值
-        // var totalCount = 4;//转动的总圈数
-        // var speed = 700;//转圈速度，越大越慢
-        // var minSpeed = 400;
-        // var timer;
-        // var isClick = true;//开关
-        // var index = 6;//指定转到哪个奖品
+        var i = 0;//转到哪个位置
+        var count = 0;//转圈初始值
+        var totalCount = 4;//转动的总圈数
+        var speed = 450;//转圈速度，越大越慢
+        var minSpeed = 450;
+        var timer;
+        var isClick = true;//开关
+        var index = 6;//指定转到哪个奖品
 
-        // function roll() {
-        //     //速度衰减
-        //     speed -= 50;
+        function roll() {
+            //速度衰减
+            speed -= 50;
+
+            if (speed <= 10) {
+                speed = 10;
+            }
+            i++;
+            //计算转圈次数
+            if (i >= ali.length - 1) {
+                i = 0;
+                count++;
+            }
+
+            //每次调用都去掉全部active类名
+            for (var j = 0; j < ali.length; j++) {
+                ali[j].classList.remove('active');
+            }
+
+            prize.innerHTML = arr[i];//旁边显示当前奖品
+
+            ali[i].classList.add('active');//添加变色类名
+            //满足转圈数和指定位置就停止
+            if (count >= totalCount && (i + 1) == index) {
+                clearTimeout(timer);
+                isClick = true;
+                speed = minSpeed; //重置时间
+            } else {
+                timer = setTimeout(roll, speed);//不满足条件时调用定时器
+                //最后一圈减速
+                if (count >= totalCount - 1 || speed <= 50) {
+                    speed += 100;
+                }
+            }
+        }
 
 
-        //     i++;
-        //     //计算转圈次数
-        //     if (i >= ali.length - 1) {
-        //         i = 0;
-        //         count++;
-        //     }
-
-        //     //每次调用都去掉全部active类名
-        //     for (var j = 0; j < ali.length; j++) {
-        //         ali[j].classList.remove('active');
-        //     }
-
-        //     prize.innerHTML = arr[i];//旁边显示当前奖品
-
-        //     ali[i].classList.add('active');//添加变色类名
-        //     //满足转圈数和指定位置就停止
-        //     if (count >= totalCount && (i + 1) == index) {
-        //         clearTimeout(timer);
-        //         isClick = true;
-        //         speed = minSpeed; //重置时间
-        //     } else {
-        //         timer = setTimeout(roll, speed);//不满足条件时调用定时器
-        //         //最后一圈减速
-        //         if (count >= totalCount - 1 || speed <= 50) {
-        //             speed += 100;
-        //         }
-        //     }
-        // }
-
-
-        // ali[ali.length - 1].onclick = function () {
-        //     if (isClick) {
-        //         count = 0;
-        //         i = -1;
-        //         roll();
-        //         isClick = false;
-        //     }
-        // }
+        ali[ali.length - 1].onclick = function () {
+            if (isClick) {
+                count = 0;
+                i = -1;
+                roll();
+                isClick = false;
+            }
+        }
     </script>
 
 
