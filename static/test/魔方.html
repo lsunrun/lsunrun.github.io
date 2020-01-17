@@ -6,9 +6,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="css/index.css">
     <style>
+        .main {
+            margin: 200px auto;
+        }
 
+        .box {
+            position: relative;
+            margin: 0 auto;
+            width: 240px;
+            height: 240px;
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            -webkit-animation: rotate 3s linear infinite;
+            animation: rotate 3s linear infinite;
+            /* animation-direction: alternate; */
+        }
+
+        .box>div {
+            position: absolute;
+            background: #fae48c;
+            opacity: 0.6;
+            width: 240px;
+            height: 240px;
+            line-height: 240px;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            font-size: 60px;
+            text-align: center;
+            color: #000;
+        }
+
+        /*  //旋转的一个道理就是 看不见的面 直接旋转到背， 即180 ,当转动整体的时候  恰好反面即是正面 */
+        .box>div:nth-child(1) {
+            /* //顶部 */
+            background: #fae48c;
+            -webkit-transform: rotateX(90deg) translateZ(120px);
+            transform: rotateX(90deg) translateZ(120px);
+        }
+
+        .box>div:nth-child(2) {
+            /* //前面 */
+            background: #9396ff;
+            -webkit-transform: translateZ(120px);
+            transform: translateZ(120px);
+        }
+
+        .box>div:nth-child(3) {
+            /* //右边 */
+            background: #ff939f;
+            -webkit-transform: rotateY(90deg) translateZ(120px);
+            transform: rotateY(90deg) translateZ(120px);
+        }
+
+        .box>div:nth-child(4) {
+            /* 后边 沿y轴翻旋转，把正面翻转到屏幕内 背面面对你，当转动整体的时候  恰好反面即是正面 */
+            background: #607d8bab;
+            -webkit-transform: rotateY(180deg) translateZ(120px);
+            transform: rotateY(180deg) translateZ(120px);
+        }
+
+        .box>div:nth-child(5) {
+            /* // 左边 沿y轴翻旋转，背面对着正方体内部，把正面翻转到屏幕左侧 */
+            background: #ff939f;
+            -webkit-transform: rotateY(-90deg) translateZ(120px);
+            transform: rotateY(-90deg) translateZ(120px);
+        }
+
+        .box>div:nth-child(6) {
+            /* // 底部    沿X轴翻旋转，把正面翻转到屏幕底部 背面对着正方体内部，永远到是正面在外面显示 */
+            background: #9c27b0;
+            -webkit-transform: rotateX(-90deg) translateZ(120px);
+            transform: rotateX(-90deg) translateZ(120px);
+        }
+
+        /* @-webkit-keyframes rotate {
+            100% {
+                transform: rotateY(300deg) rotateX(310deg) rotate(310deg);
+            }
+        } */
+
+        @keyframes rotate {
+            0% {
+                transform: rotateX(30deg);
+            }
+
+            100% {
+                transform: rotateX(30deg) rotateY(360deg);
+            }
+            
+        }
     </style>
 </head>
 
