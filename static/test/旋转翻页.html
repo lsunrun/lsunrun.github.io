@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>翻牌</title>
+    <style>
+        .wrap {
+            display: inline-block;
+            width: 224px;
+            height: 224px;
+            transform-style: preserve-3d;
+            -webkit-perspective: 1000;
+            transition: all 2s;
+            position: relative;
+        }
+
+        .wrap.active {
+            transform: rotateY(180deg);
+        }
+
+        img {
+            width: 224px;
+            height: 224px;
+            position: absolute;
+        }
+
+        .donut-back {
+            z-index: 1;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <img class="donut donut-back" src="image/donutback.svg" alt="Donut back" />
+        <img class="donut donut-front " src="image/donutfront.svg" alt="Donut front" />
+    </div>
+    <script src="js/lib/jquery-1.11.1.min.js"></script>
+    <script>
+        $(".wrap").on('click', function () {
+            if ($(this).hasClass('active')) {
+                $(this).removeClass('active');
+            } else {
+                $(this).addClass('active');
+            }
+        })
+    </script>
+</body>
+
+</html>

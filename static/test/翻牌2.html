@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>翻牌2</title>
+    <style>
+        .wrap {
+            display: inline-block;
+            width: 224px;
+            height: 224px;
+            transform-style: preserve-3d;
+            /* 这个是着重突出这个  webkit-perspective: 500;  加在父级子集才生效出效果*/
+            -webkit-perspective: 500; 
+            transition: all 2s;
+            position: relative;
+        }
+
+
+
+        img {
+            width: 224px;
+            height: 224px;
+            position: absolute;
+            transition: all 3s;
+        }
+
+        .donut-back {
+            z-index: 1;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .active {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <img class="donut donut-back" src="image/donutback.svg" alt="Donut back" />
+        <img class="donut donut-front " src="image/donutfront.svg" alt="Donut front" />
+    </div>
+    <script src="js/lib/jquery-1.11.1.min.js"></script>
+    <script>
+        $("img").on('click', function () {
+            if ($("img").hasClass('active')) {
+                $("img").removeClass('active');
+            } else {
+                $("img").addClass('active');
+            }
+        })
+    </script>
+</body>
+
+</html>

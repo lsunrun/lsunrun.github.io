@@ -10,8 +10,28 @@
     <div class="weather cloudy"></div>
     <div class="weather rainy"></div>
     <div class="weather snowy"></div>
+
+    <div class="ss"></div>
 </body>
 <style>
+.ss{
+    position: relative;
+}
+.ss::after{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+}
+.ss::after::after{
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: #ccc;
+}
+
 .weather {
     position: relative;
     display: inline-block;
