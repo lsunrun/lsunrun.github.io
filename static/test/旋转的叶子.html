@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/animate.css">
+    <style>
+        .raote-an {
+            width: 100%;
+            height: 500px;
+            background: #424242;
+        }
+
+        .raote-an .container {
+            position: relative;
+            width: 480px;
+            height: 480px;
+            animation: mine3 5s linear infinite;
+            transition: all 5s;
+        }
+
+        @keyframes mine3 {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .raote-an .container div {
+            position: absolute;
+            left: 225px;
+            top: 200px;
+            transition: box-shadow 1s;
+        }
+
+        .raote-an .container .one {
+            transform: rotate(45deg);
+            animation: one-1 8s linear infinite;
+        }
+
+        .raote-an .container .two {
+            left: 325px;
+            transform: rotate(90deg);
+            animation: one-2 8s linear infinite;
+        }
+
+        .raote-an .container .third {
+            top: 270px;
+            left: 295px;
+            transform: rotate(135deg);
+            animation: one-3 8s linear infinite;
+        }
+
+        .raote-an .container .four {
+            top: 300px;
+            transform: rotate(180deg);
+            animation: one-4 8s linear infinite;
+        }
+
+        .raote-an .container .five {
+            top: 270px;
+            left: 155px;
+            transform: rotate(225deg);
+            animation: one-5 8s linear infinite;
+        }
+
+        .raote-an .container .six {
+            left: 125px;
+            transform: rotate(270deg);
+            animation: one-6 8s linear infinite;
+        }
+
+        .raote-an .container .seven {
+            top: 130px;
+            left: 155px;
+            transform: rotate(315deg);
+            animation: one-7 8s linear infinite;
+        }
+
+        .raote-an .container .eigh {
+            top: 100px;
+            transform: rotate(360deg);
+            animation: one-8 8s linear infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="raote-an">
+        <div class="container">
+            <div class="one"></div>
+            <div class="two"></div>
+            <div class="third"></div>
+            <div class="four"></div>
+            <div class="five"></div>
+            <div class="six"></div>
+            <div class="seven"></div>
+            <div class="eigh"></div>
+        </div>
+    </div>
+</body>
+<script>
+    let wrapper = document.getElementsByClassName('container')
+    let divList = wrapper[0].children
+    let wrapper_w = wrapper[0].offsetWidth
+    let wrapper_h = wrapper[0].offsetHeight
+    let c_radius = 0;  // 半径
+    let c_radius_sqrt = Math.sqrt(c_radius * c_radius / 2) // 以45度来计算其对其的位置
+    let petal_w = 30;  // 花瓣的宽度
+    let petal_h = 80;  // 花瓣的高度
+    let petal_color = '#E645D0'; // 花瓣的颜色
+    let c_center = { // 圆心坐标
+        width: (wrapper_w - petal_w) / 2,
+        height: (wrapper_h - petal_h) / 2
+    }
+    for (var i = 0; i < divList.length; i++) { // 设置花瓣宽度、高度、边框锐角、边框阴影
+        divList[i].style.width = petal_w + 'px';
+        divList[i].style.height = petal_h + 'px';
+        divList[i].style.borderRadius = '0px ' + (petal_h + petal_w) + 'px 0px ' + (petal_h + petal_w) + 'px';
+        divList[i].style.boxShadow = 'inset 0rem 0rem 0rem 0.1rem ' + (petal_color) + ', 0rem 0rem 1.5rem 0rem ' + (petal_color);
+        divList[i].style.animation = 'one-' + (i + 1) + ' 8s linear infinite;'
+    }
+    // 第一个花瓣的绝对定位
+    divList[0].style.top = c_center.height - c_radius_sqrt + 'px';
+    divList[0].style.left = c_center.width + c_radius_sqrt + 'px';
+    // 第二个花瓣的绝对定位
+    divList[1].style.top = c_center.height + 'px';
+    divList[1].style.left = c_center.width + c_radius + 'px';
+    // 第三个花瓣的绝对定位
+    divList[2].style.top = c_center.height + c_radius_sqrt + 'px';
+    divList[2].style.left = c_center.width + c_radius_sqrt + 'px';
+    // 第四个花瓣的绝对定位
+    divList[3].style.top = c_center.height + c_radius + 'px';
+    divList[3].style.left = c_center.width + 'px';
+    // 第五个花瓣的绝对定位
+    divList[4].style.top = c_center.height + c_radius_sqrt + 'px';
+    divList[4].style.left = c_center.width - c_radius_sqrt + 'px';
+    // 第六个花瓣的绝对定位
+    divList[5].style.top = c_center.height + 'px';
+    divList[5].style.left = c_center.width - c_radius + 'px';
+    // 第七个花瓣的绝对定位
+    divList[6].style.top = c_center.height - c_radius_sqrt + 'px';
+    divList[6].style.left = c_center.width - c_radius_sqrt + 'px';
+    // 第八个花瓣的绝对定位
+    divList[7].style.top = c_center.height - c_radius + 'px';
+    divList[7].style.left = c_center.width + 'px';
+    let keyframeList = document.styleSheets[1]
+    //  控制css的animation动画  8个div的动画
+    for (let i = 1; i < 9; i++) {
+        // console.log(keyframeList.cssRules[index].name);
+        // keyframeList.deleteRule("12") // 删除12位置的动画
+        // 插入动画
+        keyframeList.insertRule("@keyframes one-" + i + " {" +
+            "      0%{" +
+            "        box-shadow: inset 0rem 0rem 0rem 0.1rem #E63FEA, 0rem 0rem 1.5rem 0rem #E63FEA;\n" +
+            "        transform: rotate(" + (i * 45) + "deg) translate(0px,0px);" +
+            "        opacity: 0 ;" +
+            "      }" +
+            "      10%{" +
+            "        box-shadow: inset 0rem 0rem 0rem 0.1rem #E63FEA, 0rem 0rem 1.5rem 0rem #E63FEA;\n" +
+            "        transform: rotate(" + (i * 45) + "deg) translate(0px,0px);" +
+            "        animation-timing-function: ease-out;" +
+            "        opacity: 1 ;" +
+            "      }" +
+            "      50%{" +
+            "        box-shadow: inset 0rem 0rem 0rem 0.1rem #17E1E6, 0rem 0rem 1.5rem 0rem #17E1E6;\n" +
+            "        transform: rotate(" + (i * 45) + "deg) translate(0px,100px);" +
+            "        animation-timing-function: ease-in;" +
+            "        opacity: 1 ;" +
+            "      }" +
+            "      90%{" +
+            "        box-shadow: inset 0rem 0rem 0rem 0.1rem #E63FEA, 0rem 0rem 1.5rem 0rem #E63FEA;\n" +
+            "        transform: rotate(" + (i * 45) + "deg) translate(0px,0px);" +
+            "        animation-timing-function: ease-out;" +
+            "        opacity: 1 ;" +
+            "      }" +
+            "      100%{" +
+            "        box-shadow: inset 0rem 0rem 0rem 0.1rem #E63FEA, 0rem 0rem 1.5rem 0rem #E63FEA;\n" +
+            "        transform: rotate(" + (i * 45) + "deg) translate(0px,0px);" +
+            "        opacity: 0 ;" +
+            "      }" +
+            "    }")
+    }
+
+    let oldColor = '#E63FEA'
+    setInterval(function () {
+        console.log('定时器开启');
+        let random_color = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f']
+        let color_1 = Math.floor(Math.random() * 16)
+        let color_2 = Math.floor(Math.random() * 16)
+        let color_3 = Math.floor(Math.random() * 16)
+        let color_4 = Math.floor(Math.random() * 16)
+        let color_5 = Math.floor(Math.random() * 16)
+        let color_6 = Math.floor(Math.random() * 16)
+        let new_color = random_color[color_1] + random_color[color_2] + random_color[color_3] + random_color[color_4] + random_color[color_5] + random_color[color_6]
+        let color_21 = Math.floor(Math.random() * 16)
+        let color_22 = Math.floor(Math.random() * 16)
+        let color_23 = Math.floor(Math.random() * 16)
+        let color_24 = Math.floor(Math.random() * 16)
+        let color_25 = Math.floor(Math.random() * 16)
+        let color_26 = Math.floor(Math.random() * 16)
+        let new_color2 = random_color[color_21] + random_color[color_22] + random_color[color_23] + random_color[color_24] + random_color[color_25] + random_color[color_26]
+        for (let i = 1; i < 9; i++) {
+            // 获得对应one-1的对应位置
+            let index;
+            for (let j = 0; j < keyframeList.cssRules.length; j++) {
+                if (keyframeList.cssRules[j].type === 7 && keyframeList.cssRules[j].name.indexOf('one-' + i) > -1) {
+                    index = j
+                }
+            }
+            keyframeList.deleteRule(index) // 删除12位置的动画
+            // 插入动画
+            keyframeList.insertRule("@keyframes one-" + i + " {" +
+                "      0%{" +
+                "        box-shadow: inset 0rem 0rem 0rem 0.1rem #" + oldColor + ", 0rem 0rem 1.5rem 0rem #" + oldColor + ";" +
+                "        transform: rotate(" + (i * 45) + "deg) translate(0px,0px);" +
+                "        opacity: 0 ;" +
+                "      }" +
+                "      5%{" +
+                "        box-shadow: inset 0rem 0rem 0rem 0.1rem #" + oldColor + ", 0rem 0rem 1.5rem 0rem #" + oldColor + ";" +
+                "        transform: rotate(" + (i * 45) + "deg) translate(0px,0px);" +
+                "        animation-timing-function: ease-out;" +
+                "        opacity: 1 ;" +
+                "      }" +
+                "      50%{" +
+                "        box-shadow: inset 0rem 0rem 0rem 0.1rem #" + oldColor + ", 0rem 0rem 1.5rem 0rem #" + oldColor + ";" +
+                "        transform: rotate(" + (i * 45) + "deg) translate(100px,0px);" +
+                "        animation-timing-function: ease-in;" +
+                "        opacity: 1 ;" +
+                "      }" +
+                "      95%{" +
+                "        box-shadow: inset 0rem 0rem 0rem 0.1rem #" + new_color + ", 0rem 0rem 1.5rem 0rem #" + new_color + ";" +
+                "        transform: rotate(" + (i * 45) + "deg) translate(0px,0px);" +
+                "        animation-timing-function: ease-out;" +
+                "        opacity: 1 ;" +
+                "      }" +
+                "      100%{" +
+                "        box-shadow: inset 0rem 0rem 0rem 0.1rem #" + new_color + ", 0rem 0rem 1.5rem 0rem #" + new_color + ";" +
+                "        transform: rotate(" + (i * 45) + "deg) translate0px,0px);" +
+                "        opacity: 0 ;" +
+                "      }" +
+                "    }")
+        }
+        oldColor = new_color
+    }, 8000)
+</script>
+
+</html>
