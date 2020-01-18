@@ -9,7 +9,7 @@
   width: 30px;
   height: 30px;
   display: inline-block;
-  animation: down 10s linear infinite;
+  animation: down 8s linear infinite;
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -17,32 +17,31 @@
 .flower {
   width: 30px;
   height: 30px;
-  background: url("../image/花.png") no-repeat;
+  background: url("../image/flowers.png") no-repeat;
   background-size: contain;
   text-align: center;
   display: inline-block;
-  animation: rotate 10s linear infinite;
+  animation: rotate 8s linear infinite;
 }
 
 @keyframes rotate {
   25% {
-    transform: translateX(-70px);
+    transform: translateX(-120px);
   }
   50% {
-    transform: translateX(100px);
+    transform: translateX(0) translateY(-60px);
   }
   75% {
-    transform: translateX(-60px);
+    transform: translateX(120px) ;
   }
   100% {
-    transform: translateX(60px);
+    transform: translateX(0);
   }
 }
 
 @keyframes down {
   100% {
     // transform: translateY(-600px) rotate(360deg) rotateY(360deg) rotateX(360deg);
-    transform: translateY(-600px) rotate(360deg) ;
-
+    transform: translateY(-600px) rotate(360deg);
   }
 }
