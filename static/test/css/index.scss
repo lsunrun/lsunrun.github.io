@@ -1,47 +1,15 @@
-.bg {
+#container {
   position: relative;
-  height: 800px;
-  width: 600px;
-  background: #ccc;
+  height: 700px;
+  width: 500px;
+  margin: 10px auto;
   overflow: hidden;
+  border: 4px solid #5c090a;
+  background: #4e4226 url("../image/backgroundLeaves.jpg") no-repeat top left;
 }
-.zz {
-  width: 30px;
-  height: 30px;
-  display: inline-block;
-  animation: down 8s linear infinite;
+/* 定义leafContainer div的位置和尺寸 */
+#leafContainer {
   position: absolute;
-  bottom: 0;
-  left: 50%;
-}
-.flower {
-  width: 30px;
-  height: 30px;
-  background: url("../image/flowers.png") no-repeat;
-  background-size: contain;
-  text-align: center;
-  display: inline-block;
-  animation: rotate 8s linear infinite;
-}
-
-@keyframes rotate {
-  25% {
-    transform: translateX(-120px);
-  }
-  50% {
-    transform: translateX(0) translateY(-60px);
-  }
-  75% {
-    transform: translateX(120px) ;
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes down {
-  100% {
-    // transform: translateY(-600px) rotate(360deg) rotateY(360deg) rotateX(360deg);
-    transform: translateY(-600px) rotate(360deg);
-  }
+  width: 100%;
+  height: 100%;
 }

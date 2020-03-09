@@ -129,3 +129,41 @@ div {
   font-size: 0.23rem;
   overflow: auto;
 }
+
+
+/* iphone手机型号适配 */
+@media screen and (min-device-height: 812px) and (max-device-height: 956px) {
+  /* //i max */
+  
+}
+
+@media screen and (device-height: 812px) {
+  /* //ix */
+ 
+}
+@media screen and (device-height: 667px) {
+  /* //i6 */
+  
+}
+@media screen and (device-height: 568px) {
+  /* //i5 */
+  
+}
+
+/* 横屏 竖屏 适配*/
+
+
+
+
+@media screen and (orientation: landscape) {
+  /*横屏 css*/
+  html {
+    font-size: calc(100vw / 13.34) !important;
+  }
+}
+@media screen and (orientation: portrait) {
+  /*竖屏 css*/
+  html {
+    font-size: calc(100vw / 7.5) !important;
+  }
+}
