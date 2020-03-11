@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #leafContainer {
+            height: 700px;
+            width: 500px;
+            margin: 77px auto;
+            padding: 36px;
+            border: 1px solid;
+        }
+
+        #leaf {
+            -webkit-animation-iteration-count: infinite, infinite;
+            -webkit-animation-direction: normal, normal;
+            -webkit-animation-timing-function: linear, ease-in;
+        }
+
+        img {
+            width: 50px;
+            height: 56px;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-direction: normal;
+            -webkit-animation-timing-function: linear;
+            -webkit-transform-origin: 50% -100%;
+
+        }
+
+
+
+        @-webkit-keyframes fade {
+
+            /* 在进入或低于95%的动画时显示叶子并隐藏它，否则 */
+            0% {
+                opacity: 1;
+            }
+
+            95% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+
+        @-webkit-keyframes drop {
+
+            /* 在动画开始时，将叶节点在y轴上移动到-300像素 */
+            0% {
+                -webkit-transform: translate(0px, 0px);
+            }
+
+            /* 在动画结束时，将叶子移动到y轴上的600像素处 */
+            100% {
+                -webkit-transform: translate(0px, 620px);
+            }
+        }
+
+        @-webkit-keyframes rotate {
+
+            0% {
+                -webkit-transform: rotate(0deg) rotate(-50deg);
+            }
+
+            10% {
+                -webkit-transform: translateX(40px) rotate(-60deg);
+            }
+
+            20% {
+                -webkit-transform: translateX(80px) rotate(-70deg);
+            }
+
+            30% {
+                -webkit-transform: translateX(120px) rotate(-80deg);
+            }
+
+            40% {
+                -webkit-transform: translateX(140px) rotate(-90deg);
+            }
+
+            50% {
+                -webkit-transform: translateX(160px) rotate(-100deg);
+            }
+
+            55% {
+                -webkit-transform:  translateX(180px) rotate(-160deg);
+            }
+
+            60% {
+                -webkit-transform: translateX(180px) rotate(-360deg);
+            }
+
+            75% {
+                -webkit-transform: rotate(-360deg);
+            }
+
+            90% {
+                -webkit-transform: translateX(140px);
+            }
+
+            /*  在动画结束时，在2D空间中旋转叶子50度 */
+            100% {
+                -webkit-transform: translateX(150px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="leafContainer">
+        <div id="leaf">
+            <img src="./image/leaf.png" alt="">
+        </div>
+    </div>
+    <script>
+
+        function rotateFun() {
+            setInterval();
+            var img = document.querySelector("#leaf>img");
+            img.style.cssText = '';
+            document.styleSheets[0].cssRules.length
+            for (var i = 0; i < 311; i++) {
+
+
+            }
+        }
+
+        function init() {
+            actionFun()
+        }
+
+        function randomFloat(min, max) {
+            return Math.random() * (max - min + 1) + min;
+        }
+
+
+        function durationValue(value) {
+            return value + 's';
+        }
+
+        function actionFun() {
+            var leaf = document.getElementById('leaf');
+            var img = document.querySelector("#leaf>img");
+
+            leaf.style.animationName = 'fade,drop';
+            img.style.animationName = 'rotate';
+
+            var fadeAndDropDuration = '6s';
+
+            var spinDuration = '6s';
+
+            leaf.style.animationDuration = fadeAndDropDuration + ', ' + fadeAndDropDuration;
+            img.style.animationDuration = spinDuration;
+
+            // var leafDelay = '3s';
+            // leaf.style.webkitAnimationDelay = leafDelay + ', ' + leafDelay;
+            // img.style.webkitAnimationDelay =leafDelay
+        }
+
+
+
+
+
+        // window.onload=function(){}
+        window.addEventListener("load", init, false);
+    </script>
+</body>
+
+</html>

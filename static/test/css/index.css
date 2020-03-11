@@ -1,4 +1,7 @@
-@charset "UTF-8";
+body {
+  background-color: #4e4226;
+}
+
 #container {
   position: relative;
   height: 700px;
@@ -14,4 +17,114 @@
   position: absolute;
   width: 100%;
   height: 100%;
+}
+
+p {
+  margin: 15px;
+}
+
+a {
+  color: #5c090a;
+  text-decoration: none;
+}
+
+em {
+  font-weight: bold;
+  font-style: normal;
+}
+
+.phone {
+  font-size: 150%;
+  vertical-align: middle;
+}
+
+/* 此CSS规则适用于leafContainer div中的所有div元素。
+它样式和动画每个叶div。
+*/
+#leafContainer > div {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+
+  /* 我们使用以下属性来对每个叶子应用渐变和下降动画。
+每个属性都有两个值。这些值分别与设置匹配
+用于淡出和下降。
+    */
+  -webkit-animation-iteration-count: infinite, infinite;
+  -webkit-animation-direction: normal, normal;
+  -webkit-animation-timing-function: linear, ease-in;
+}
+
+/* 这个CSS规则适用于所有直接在div元素中的img元素
+换句话说，它匹配‘img’元素
+在在createALeaf()函数中创建的leafdiv中。
+*/
+#leafContainer > div > img {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+
+  /* 我们使用下列属性来调整“顺时针针”或“逆时针针”和“翻转”
+每个叶上的动画。
+js文件中的createALeaf函数确定一个叶子是否具有
+时针或逆时针方向旋转动画。
+    */
+
+  /* 无限播放 */
+  -webkit-animation-iteration-count: infinite;
+  /* //动画应该轮流反向播放。 */
+  -webkit-animation-direction: alternate;
+  /* 动画以低速开始和结束。 */
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-transform-origin: 50% -100%;
+}
+
+/* 在动画的最后隐藏了一片叶子*/
+@-webkit-keyframes fade {
+  /* 在进入或低于95%的动画时显示叶子并隐藏它，否则 */
+  0% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* 使叶子在y轴上从-300像素下降到600像素*/
+@-webkit-keyframes drop {
+  /* 在动画开始时，将叶节点在y轴上移动到-300像素 */
+  0% {
+    -webkit-transform: translate(0px, -200px);
+  }
+  /* 在动画结束时，将叶子移动到y轴上的600像素处 */
+  100% {
+    -webkit-transform: translate(0px, 650px);
+  }
+}
+
+/* 在2D空间中旋转叶子，从-50度旋转到50度 */
+@-webkit-keyframes clockwiseSpin {
+  /* 在动画开始时，在2D空间中旋转叶子-50度 */
+  0% {
+    -webkit-transform: rotate(-50deg);
+  }
+  /*  在动画结束时，在2D空间中旋转叶子50度 */
+  100% {
+    -webkit-transform: rotate(50deg);
+  }
+}
+
+/* 在2D空间中翻转叶子并将其旋转50到-50度 */
+@-webkit-keyframes counterclockwiseSpinAndFlip {
+  /* 在动画开始时，翻转一片叶子并在2D空间中旋转50度 */
+  0% {
+    -webkit-transform: scale(-1, 1) rotate(50deg);
+  }
+  /* 在动画结束时，翻转一片叶子并在2D空间中旋转-50度 */
+  100% {
+    -webkit-transform: scale(-1, 1) rotate(-50deg);
+  }
 }

@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -15,6 +15,97 @@
     </div>
 
     <script>
+        // 定义叶子的数量
+        const LEAVES = 30;
+
+        /*
+            页面加载的时候调用
+        */
+        function init() {
+            var leafContainer = document.getElementById('leafContainer');
+            // 循环生成叶子
+            for (var i = 0; i < LEAVES; i++) {
+                //  写一个方法，里包含需要生成好的一张叶子的参数
+                leafContainer.appendChild(createALeaf());
+            }
+        }
+        // 值=Math.floor(Math.random()*可能值的总数+第一个可能的值)
+        //或者Math.floor(Math.random()*(max-min+1)+min) 
+
+        function randomInteger(min, max) {
+            // 4张图片 随机取整数 向下取整
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+
+        /*
+         接收范围和的最低值和最高值
+        返回位于该范围内的随机浮点数。
+        */
+        function randomFloat(min, max) {
+            return Math.random() * (max - min + 1) + min;
+        }
+        /*
+           返回坠落动画的持续时间值。
+        */
+
+        function durationValue(value) {
+            return value + 's';
+        }
+
+        /*
+            接收一个数字并返回其CSS像素值。
+        */
+        function pixelValue(value) {
+            return value + 'px';
+        }
+
+        function createALeaf() {
+            //  创建两个标签，后面会分别给他们加上动画，一个负责下落，一个负责旋转
+            var leaf = document.createElement('div');
+            var image = document.createElement('img');
+
+            //  随机给图片  有4张图片， 这里有个随机方法
+            image.src = 'image/realLeaf' + randomInteger(1, 4) + '.png';
+
+            //创建后把叶子的父级即div定位在y轴 -100px 的位置，从屏幕上落下
+            // leaf.style.top = '-200px';  //
+
+            /*沿屏幕随机定位叶子   x轴的位置*/
+            leaf.style.left = pixelValue(randomInteger(0, 500));
+
+            /* 随机选择一个旋转动画 */
+            // var spinAnimationName = (Math.random() < 0.5) ? 'clockwiseSpin' : 'counterclockwiseSpinAndFlip';
+            // 父级负责下落和消失
+            leaf.style.animationName = 'fade,drop';
+            image.style.animationName = 'clockwiseSpin';
+
+
+            /*
+             两个的动画时间大小区间问题·： 下落和消失时间 与旋转动画区间不应相差太大
+            */
+
+            // 设置 下落和消失时间， 它们应该相同，每个叶子的父级速度时间不一样所以用随机数，可以带小数
+            var fadeAndDropDuration = durationValue(randomFloat(5, 11));
+
+            // 设置 旋转动画每个叶子的速度时间不一样所以用随机数，可以带小数
+            var spinDuration = durationValue(randomFloat(4, 8));
+
+            leaf.style.animationDuration = fadeAndDropDuration + ', ' + fadeAndDropDuration;
+            image.style.animationDuration = spinDuration;
+
+            // 延迟
+            var leafDelay = durationValue(randomFloat(0, 5));
+            leaf.style.webkitAnimationDelay = leafDelay + ', ' + leafDelay;
+
+            // 将<img>添加到<div>
+            leaf.appendChild(image);
+
+            /* 返回这个img元素，以便可以将它添加到文档中 */
+            return leaf;
+        }
+        /* 当“落叶”页已满时调用init函数*/
+        window.addEventListener('load', init, false);
 
     </script>
 </body>

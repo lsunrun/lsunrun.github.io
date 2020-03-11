@@ -60,6 +60,71 @@ var common = {
      */
     closeMask: function () {
         document.body.removeChild(document.getElementsByClassName("m-mask")[0]);
+    },
+    // 输入框身份证正则
+    checkCard = function (value) {
+
+        if (/(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$|^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|[Xx])$)/g.test(value)) {
+            $(".nocard").hide();
+        } else {
+            $(".nocard").show();
+        }
+    },
+    // 输入框正则中文加·
+    checkName = function (value) {
+        if (/^[\u4e00-\u9fa5]+(·[\u4e00-\u9fa5]+)*$/g.test(value)) {
+            $(".noname").hide();
+        } else {
+            $(".noname").show();
+        }
+    },
+    // 输入框正则
+    input = function () {
+        $("#userName").on("input propertychange", function () {
+            if (this.value == '' || this.value == undefined || this.value == null) {
+                $(".noname").hide();
+                return;
+            }
+            Fun.showerrorx(0);
+        })
+
+        $("#userName").on("blur", function () {
+            window.scrollTo(0, 0);//苹果弹起输入面板收回时 需要重置
+            if (this.value == '' || this.value == undefined || this.value == null) {
+                $(".noname").hide();
+                return;
+            }
+            Fun.checkName(this.value);
+        })
+
+
+
+        $('#card').on("input propertychange", function () {
+            if (this.value == '' || this.value == undefined || this.value == null) {
+                $(".nocard").hide();
+                return false
+            }
+            if (!(/^\d+[xX]{0,1}$/g.test(this.value))) {
+                this.value = '';
+                return false
+            }
+            Fun.showerrorx(1);
+
+        })
+
+        $('#card').on("blur", function () {
+            window.scrollTo(0, 0);
+            if (this.value == '' || this.value == undefined || this.value == null) {
+                $(".nocard").hide();
+                return;
+            }
+            Fun.checkCard(this.value);
+        })
+
+    },
+    //显示输入框的清除按钮
+    showerrorx = function (index) {
+        $(".errorx").eq(index).show();
     }
 }
 
