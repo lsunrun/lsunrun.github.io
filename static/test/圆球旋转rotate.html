@@ -27,15 +27,21 @@
             left: 50%;
             background-color: #3c9;
             animation: rotate 3s linear infinite;
-            transform: rotate(0) translate(-180px, 0);
+            /* transform: rotate(0) translate(-180px, 0); */
+            /* transform: rotate(0) ; */
         }
 
         @keyframes rotate {
+            0% {
+                transform: rotate(0) translate(-180px, 0);
+            }
+
             100% {
                 transform: rotate(360deg) translate(-180px, 0);
             }
         }
 
+        /* 规定在动画开始之前的延迟。 */
         .roate:nth-child(2) {
             animation-delay: -1s;
         }

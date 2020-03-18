@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 10px;
+            height: 100px;
+
+            background: #ccc;
+            margin: 300px auto;
+            transform-origin: bottom;
+            animation: rotate 3s linear infinite;
+        }
+
+        /* @keyframes rotate {
+            0% {
+                transform: rotate(0);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+
+    </div>
+
+    <script>
+
+        // var arr = [1, 2, 3, 4, 5, 6, 7, 8];
+        // var lottery = document.querySelector('.lottery');
+        // var prize = document.querySelector('.prize');
+        // var ali = lottery.querySelectorAll('li');
+
+        var box1 = document.querySelector('.box1');
+
+        var rotateIndex = 0;
+
+
+        setInterval(function () {
+            rotateIndex++;
+            box1.style.transform = 'rotate(' + rotateIndex + 'deg)';
+        }, 15)
+        // var i = -1;//指定从那个开始转  0为从2 开始转
+        // var count = 0;//转圈初始值      如果为4  那么totalCount =4  就是只转一次，到指定的index 停下，
+        // var totalCount = 3;//转动的总圈数
+        // var speed = 15;//转圈速度，越大越慢
+        // var minSpeed = 15;
+        // var timer;
+        // var index = 90;//指定结束转到哪个奖品
+        // var goods = 360;
+        // var rotateIndex = 0;
+        // function roll() {
+
+        //     if (count == 0 && i < 6) {
+        //         rotateIndex++;
+        //     } else {
+        //         rotateIndex += 15;
+        //     }
+        //     console.log(i);
+
+        //     //速度衰减
+        //     speed -= 1;
+
+        //     if (speed <= 2) {
+        //         speed = 0;
+        //     }
+        //     i++;
+        //     //计算转圈次数
+        //     if (i >= goods) {
+        //         i = 0;
+        //         count++;
+        //     }
+        //     box1.style.transform = 'rotate(' + rotateIndex + 'deg)';
+
+        //     //满足转圈数和指定位置就停止
+        //     if (count >= totalCount && i == index) {
+        //         clearTimeout(timer);
+        //         timer = null;
+        //         speed = minSpeed; //重置时间
+        //     } else {
+        //         timer = setTimeout(roll, speed);//不满足条件时调用定时器
+        //         //最后一圈减速
+        //         if (count >= totalCount - 1 || speed <= 2) {
+        //             speed += 0.5;
+        //         }
+        //     }
+        // }
+
+        // roll();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* pages/index/photo/index.wxss */
+
+        .main {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* y轴居中 */
+            /* align-items: center; */
+            /* X轴居中 */
+            /* justify-content: center; */
+        }
+
+        [class^='box'] {
+            position: relative;
+            transform-style: preserve-3d;
+            width: 300px;
+            height: 300px;
+            box-sizing: border-box;
+            transform: rotateY(30deg) rotateX(30deg);
+        }
+
+        .wrap {
+            padding-top: 220px;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotateY(30deg) rotateX(30deg);
+            }
+
+            100% {
+                transform: rotate(50deg) rotateY(30deg) rotateX(360deg);
+            }
+        }
+
+        [class^='box'] img {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            opacity: 0.8;
+            box-sizing: border-box;
+        }
+
+        .box1 {
+            transform: rotateX(26deg) rotateY(500deg);
+            /* animation: rotate 3s linear infinite; */
+        }
+
+        .box1 img:nth-of-type(1) {
+            transform: rotateX(90deg) translateZ(150px);
+        }
+
+        .box1 img:nth-of-type(2) {
+            transform: rotateX(-90deg) translateZ(150px);
+        }
+
+        .box1 img:nth-of-type(3) {
+            transform: rotateY(-90deg) translateZ(150px);
+        }
+
+        .box1 img:nth-of-type(4) {
+            transform: rotateY(90deg) translateZ(150px);
+        }
+
+        .box1 img:nth-of-type(5) {
+            transform: rotateY(180deg) translateZ(150px);
+        }
+
+        .box1 img:nth-of-type(6) {
+            transform: translateZ(150px);
+        }
+
+        /* 2 */
+
+        .box2 img:nth-of-type(3) {
+            transform: rotateX(90deg) translateZ(200px);
+        }
+
+        .box2 img:nth-of-type(6) {
+            transform: rotateX(-90deg) translateZ(200px);
+        }
+
+        .box2 img:nth-of-type(1) {
+            transform: rotateY(-90deg) translateZ(200px);
+        }
+
+        .box2 img:nth-of-type(2) {
+            transform: rotateY(90deg) translateZ(200px);
+        }
+
+        .box2 img:nth-of-type(5) {
+            transform: rotateY(180deg) translateZ(200px);
+        }
+
+        .box2 img:nth-of-type(4) {
+            transform: translateZ(200px);
+        }
+
+        /* 3 */
+
+        .box3 img {
+            opacity: 1;
+        }
+
+        .box3 img:nth-of-type(1) {
+            transform: rotateX(90deg) translateZ(150px);
+        }
+
+        .box3 img:nth-of-type(2) {
+            transform: rotateX(-90deg) translateZ(150px);
+        }
+
+        .box3 img:nth-of-type(3) {
+            transform: rotateY(-90deg) translateZ(150px);
+        }
+
+        .box3 img:nth-of-type(6) {
+            transform: rotateY(90deg) translateZ(150px);
+        }
+
+        .box3 img:nth-of-type(5) {
+            transform: rotateY(180deg) translateZ(150px);
+        }
+
+        .box3 img:nth-of-type(4) {
+            transform: translateZ(150px);
+        }
+
+        /* 4 */
+        .box4 img {
+            opacity: 0.5;
+        }
+
+        .wrap:nth-of-type(4) {
+            padding-bottom: 200px;
+        }
+
+        .box4 {
+            transform: rotateY(6deg);
+            perspective: 10;
+
+        }
+
+        .box4 img:nth-of-type(1) {
+            transform: rotateX(60deg) translateZ(230px);
+        }
+
+        .box4 img:nth-of-type(2) {
+            transform: rotateX(-60deg) translateZ(230px);
+        }
+
+        .box4 img:nth-of-type(5) {
+            transform: rotateY(-90deg) translateZ(230px);
+        }
+
+        .box4 img:nth-of-type(4) {
+            transform: rotateY(90deg) translateZ(230px);
+        }
+
+        .box4 img:nth-of-type(3) {
+            transform: rotateY(180deg) translateZ(230px);
+        }
+
+        .box4 img:nth-of-type(6) {
+            transform: translateZ(230px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="wrap">
+            <div class="box1">
+                <img src="./image/1.jpg"></img>
+                <img src="./image/2.jpg"></img>
+                <img src="./image/3.jpg"></img>
+                <img src="./image/4.jpg"></img>
+                <img src="./image/5.jpg"></img>
+                <img src="./image/6.jpg"></img>
+            </div>
+        </div>
+        <div class="wrap">
+            <div class="box2">
+                <img src="./image/1.jpg"></img>
+                <img src="./image/2.jpg"></img>
+                <img src="./image/3.jpg"></img>
+                <img src="./image/4.jpg"></img>
+                <img src="./image/5.jpg"></img>
+                <img src="./image/6.jpg"></img>
+            </div>
+        </div>
+        <div class="wrap">
+            <div class="box3">
+                <img src="./image/1.jpg"></img>
+                <img src="./image/2.jpg"></img>
+                <img src="./image/3.jpg"></img>
+                <img src="./image/4.jpg"></img>
+                <img src="./image/5.jpg"></img>
+                <img src="./image/6.jpg"></img>
+            </div>
+        </div>
+        <div class="wrap">
+            <div class="box4">
+                <img src="./image/1.jpg"></img>
+                <img src="./image/2.jpg"></img>
+                <img src="./image/3.jpg"></img>
+                <img src="./image/4.jpg"></img>
+                <img src="./image/5.jpg"></img>
+                <img src="./image/6.jpg"></img>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
